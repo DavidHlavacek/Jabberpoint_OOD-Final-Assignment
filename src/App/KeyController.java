@@ -1,11 +1,11 @@
-package Application;
+package App;
 
 import Presentation.Presentation;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class KeyController extends KeyAdapter implements ApplicationController{
+public class KeyController extends KeyAdapter implements Controller {
 
     private Presentation presentation;
 
@@ -32,7 +32,7 @@ public class KeyController extends KeyAdapter implements ApplicationController{
         }
     }
     @Override
-    public void connectToApplication(Window application) {
+    public void connect(AppContainer application) {
         this.presentation = application.getPresentationComponent().getPresentation();
         application.addKeyListener(this);
     }

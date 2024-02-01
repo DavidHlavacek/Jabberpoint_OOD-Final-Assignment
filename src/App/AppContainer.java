@@ -1,4 +1,4 @@
-package Application;
+package App;
 
 import Presentation.PresentationComponent;
 
@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class Window extends JFrame {
+public class AppContainer extends JFrame {
     public final static int WIDTH = 1200;
     public final static int HEIGHT = 800;
 
@@ -20,7 +20,7 @@ public class Window extends JFrame {
     private Dimension dimension;
 
 
-    public Window(String title, PresentationComponent presentationComponent) {
+    public AppContainer(String title, PresentationComponent presentationComponent) {
         super(title);
         this.presentationComponent = presentationComponent;
         this.dimension = new Dimension(WIDTH, HEIGHT);

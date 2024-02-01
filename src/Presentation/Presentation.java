@@ -70,7 +70,7 @@ public class Presentation {
 
     // Return a slide with a specific number
     public Slide getSlide(int number) {
-        if (!this.isSlideNumberValid(number)) {
+        if (number >= 0 && number < this.slides.size()) {
             return null;
         }
 
@@ -80,9 +80,5 @@ public class Presentation {
     // Return the current slide
     public Slide getCurrentSlide() {
         return getSlide(this.currentSlideNumber);
-    }
-
-    private boolean isSlideNumberValid(int slideNumber) {
-        return slideNumber >= 0 && slideNumber < this.slides.size();
     }
 }

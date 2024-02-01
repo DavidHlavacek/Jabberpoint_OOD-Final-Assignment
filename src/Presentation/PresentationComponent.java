@@ -1,6 +1,6 @@
 package Presentation;
 
-import Application.Window;
+import App.AppContainer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +9,7 @@ public class PresentationComponent extends JComponent {
 
     private Font labelFont;
     private Presentation presentation;
-    private Style[] styles;
+    private Style styles[];
     private static final Color BGCOLOR = Color.white;
     private static final Color COLOR = Color.black;
     private static final String FONTNAME = "Dialog";
@@ -84,6 +84,6 @@ public class PresentationComponent extends JComponent {
 
     //Returns the scale to draw a slide
     private float getScale(Rectangle area) {
-        return Math.min(((float) area.width) / ((float) Window.WIDTH), ((float) area.height) / ((float) Window.HEIGHT));
+        return Math.min(((float) area.width) / ((float) AppContainer.WIDTH), ((float) area.height) / ((float) AppContainer.HEIGHT));
     }
 }

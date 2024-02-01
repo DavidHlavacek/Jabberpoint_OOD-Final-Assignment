@@ -1,7 +1,7 @@
-package Application;
+package App;
 
-import API.Accessor;
-import API.XMLAccessor;
+import Backend.Accessor;
+import Backend.XMLAccessor;
 import Presentation.Presentation;
 
 import javax.swing.*;
@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class MenuController extends MenuBar implements ApplicationController {
+public class MenuController extends MenuBar implements Controller {
     protected static final String ABOUT = "About";
     protected static final String FILE = "File";
     protected static final String EXIT = "Exit";
@@ -33,7 +33,7 @@ public class MenuController extends MenuBar implements ApplicationController {
     public MenuController() {
     }
 
-    private void initialize(Window application) {
+    private void initialize(AppContainer application) {
         Presentation presentation = application.getPresentationComponent().getPresentation();
         MenuItem menuItem;
 
@@ -139,8 +139,8 @@ public class MenuController extends MenuBar implements ApplicationController {
     }
 
     @Override
-    public void connectToApplication(Window applicationWindow) {
-        this.initialize(applicationWindow);
-        applicationWindow.setMenuBar(this);
+    public void connect(AppContainer appContainer) {
+        this.initialize(appContainer);
+        appContainer.setMenuBar(this);
     }
 }

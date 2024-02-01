@@ -1,4 +1,4 @@
-package API;
+package Backend;
 
 import Presentation.Presentation;
 import Presentation.SlideItem;
@@ -20,7 +20,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Vector;
 
 public class XMLAccessor extends Accessor{
 

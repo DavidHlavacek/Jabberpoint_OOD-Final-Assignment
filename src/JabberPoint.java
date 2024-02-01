@@ -1,9 +1,9 @@
-import API.Accessor;
-import API.XMLAccessor;
-import Application.Window;
-import Application.Controller;
-import Application.KeyController;
-import Application.MenuController;
+import Backend.Accessor;
+import Backend.XMLAccessor;
+import App.AppContainer;
+import App.AppController;
+import App.KeyController;
+import App.MenuController;
 import Presentation.PresentationComponent;
 
 import javax.swing.JOptionPane;
@@ -31,13 +31,15 @@ public class JabberPoint {
 	/** The main program */
 	public static void main(String[] argv) {
 		PresentationComponent presentationComponent = new PresentationComponent();
-		Window applicationWindow = new Window(JABVERSION, presentationComponent);
+		AppContainer appContainer = new AppContainer(JABVERSION, presentationComponent);
 
-		Controller controller = new Controller(applicationWindow);
 		MenuController menuController = new MenuController();
 		KeyController keyController = new KeyController();
-		controller.addController(menuController);
-		controller.addController(keyController);
+
+		AppController appController = new AppController(appContainer);
+		appController.addController(menuController);
+		appController.addController(keyController);
+
 		try {
 			if (argv.length == 0) { //a demo presentation
 				Accessor.getDemoAccessor().loadFile(presentationComponent.getPresentation(), "");
@@ -51,6 +53,6 @@ public class JabberPoint {
 					JOptionPane.ERROR_MESSAGE);
 		}
 
-		controller.run();
+		appController.run();
 	}
 }

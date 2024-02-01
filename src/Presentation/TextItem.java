@@ -1,6 +1,6 @@
 package Presentation;
 
-import Application.Window;
+import App.AppContainer;
 
 import java.awt.*;
 import java.awt.font.FontRenderContext;
@@ -94,7 +94,7 @@ public class TextItem extends SlideItem {
         Graphics2D g2d = (Graphics2D) g;
         FontRenderContext frc = g2d.getFontRenderContext();
         LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), frc);
-        float wrappingWidth = (Window.WIDTH - style.getIndent()) * scale;
+        float wrappingWidth = (AppContainer.WIDTH - style.getIndent()) * scale;
 
         while (measurer.getPosition() < getText().length()) {
             TextLayout layout = measurer.nextLayout(wrappingWidth);

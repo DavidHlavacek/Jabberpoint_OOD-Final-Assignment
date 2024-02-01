@@ -36,11 +36,24 @@ public class Presentation {
         return this.currentSlideNumber;
     }
 
+    private boolean isSlideNumberOutOfBounds(int slideNumber) {
+        return slideNumber < 0 || slideNumber >= this.slides.size();
+    }
+
     // Change the current slide number and report it the window
+    //Bug fixed by checking if out of bounds
     public void setSlideNumber(int number) {
-        if (this.isSlideNumberValid(number)) {
+        if (!this.isSlideNumberOutOfBounds(number)) {
             currentSlideNumber = number;
         }
+    }
+    // Return a slide with a specific number
+    public Slide getSlide(int number) {
+        if (this.isSlideNumberOutOfBounds(number)) {
+            return null;
+        }
+
+        return this.slides.get(number);
     }
 
     // Navigate to the previous slide unless we are at the first slide
@@ -68,17 +81,9 @@ public class Presentation {
         this.slides.add(slide);
     }
 
-    // Return a slide with a specific number
-    public Slide getSlide(int number) {
-        if (number >= 0 && number < this.slides.size()) {
-            return null;
-        }
-
-        return this.slides.get(number);
-    }
-
     // Return the current slide
     public Slide getCurrentSlide() {
         return getSlide(this.currentSlideNumber);
     }
+
 }

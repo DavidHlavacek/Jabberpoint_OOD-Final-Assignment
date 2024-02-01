@@ -6,8 +6,6 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 
 /**
- * <p>The application window for the presentation.PresentationComponent</p>
- *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */

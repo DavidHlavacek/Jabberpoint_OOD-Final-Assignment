@@ -1,7 +1,7 @@
 import Backend.Accessor;
 import Backend.XMLAccessor;
 import App.AppContainer;
-import App.AppController;
+import App.App;
 import App.KeyController;
 import App.MenuController;
 import Presentation.PresentationComponent;
@@ -36,9 +36,9 @@ public class JabberPoint {
 		MenuController menuController = new MenuController();
 		KeyController keyController = new KeyController();
 
-		AppController appController = new AppController(appContainer);
-		appController.addController(menuController);
-		appController.addController(keyController);
+		App app = new App(appContainer);
+		app.addController(menuController);
+		app.addController(keyController);
 
 		try {
 			if (argv.length == 0) { //a demo presentation
@@ -53,6 +53,6 @@ public class JabberPoint {
 					JOptionPane.ERROR_MESSAGE);
 		}
 
-		appController.run();
+		app.run();
 	}
 }

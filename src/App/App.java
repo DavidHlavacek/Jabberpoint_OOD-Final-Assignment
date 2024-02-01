@@ -2,13 +2,13 @@ package App;
 
 import java.util.ArrayList;
 
-public class AppController {
+public class App {
     private AppContainer appContainer;
     private ArrayList<Controller> controllers;
 
-    public AppController(AppContainer application) {
+    public App(AppContainer appContainer) {
         this.controllers = new ArrayList<>();
-        this.appContainer = application;
+        this.appContainer = appContainer;
     }
 
     public void addController(Controller controller) {

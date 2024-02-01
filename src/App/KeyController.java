@@ -32,8 +32,8 @@ public class KeyController extends KeyAdapter implements Controller {
         }
     }
     @Override
-    public void connect(AppContainer application) {
-        this.presentation = application.getPresentationComponent().getPresentation();
-        application.addKeyListener(this);
+    public void connect(AppContainer appContainer) {
+        this.presentation = appContainer.getPresentationComponent().getPresentation();
+        appContainer.addKeyListener(this);
     }
 }
